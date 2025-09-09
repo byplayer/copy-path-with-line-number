@@ -58,7 +58,7 @@ class ConcreteCopyCommand implements Command {
     async Execute(uri: Uri): Promise<string> {
         if (this.needLineInfo && this.lineInfoMaker !== null) {
             let res = '@' + this.getPath(uri);
-            res += "#" + this.lineInfoMaker.GetLineInfo();
+            res += "#L" + this.lineInfoMaker.GetLineInfo();
             return res;
         }
 
