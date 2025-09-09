@@ -154,7 +154,7 @@ class LineInfoMaker implements ILineInfoMaker {
             if (range.start === range.end) {
                 return range.start;
             }
-            return `${range.start}${rangeConnector}${range.end}`;
+            return `L${range.start}${rangeConnector}${range.end}`;
         }).join(rangeSeparator);
 
         return selectedLines;

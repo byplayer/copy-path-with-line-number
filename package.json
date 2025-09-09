@@ -2,7 +2,7 @@
   "name": "copy-path-with-line-number",
   "displayName": "copy-path-with-line-number",
   "description": "copy absolute or relative path with current line number or selected lines range info in editor context",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "icon": "images/icon.png",
   "publisher": "qishan233",
   "license": "SEE LICENSE IN LICENSE.md",
@@ -192,6 +192,7 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "@vscode/vsce": "^3.6.0",
     "source-map-support": "^0.5.21"
   }
 }
