@@ -1,4 +1,4 @@
-import { Uri, window, workspace, env } from 'vscode';
+import { Uri, window, workspace, env, StatusBarAlignment, StatusBarItem } from 'vscode';
 import { UriResolverFactory, LineInfoMakerFactory, IUriResolver, ILineInfoMaker } from './resolver_decorator';
 
 async function DoCopy(command: CopyCommandType, uri: Uri) {
@@ -15,11 +15,27 @@ async function DoCopy(command: CopyCommandType, uri: Uri) {
     TryShowMessage(content);
 }
 
+let statusBarItem: StatusBarItem | undefined;
+
 function TryShowMessage(content: string) {
     var config = workspace.getConfiguration('copyPathWithLineNumber');
 
     if (config.get('show.message') === true) {
-        window.showInformationMessage('Copied to clipboard: ' + content);
+        // Create status bar item if it doesn't exist
+        if (!statusBarItem) {
+            statusBarItem = window.createStatusBarItem(StatusBarAlignment.Right, 100);
+        }
+
+        // Show message in status bar
+        statusBarItem.text = `$(check) Copied: ${content}`;
+        statusBarItem.show();
+
+        // Hide after 3 seconds
+        setTimeout(() => {
+            if (statusBarItem) {
+                statusBarItem.hide();
+            }
+        }, 3000);
     }
 }
 
