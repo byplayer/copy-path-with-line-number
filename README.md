@@ -34,6 +34,18 @@ It also supports Chinese and English(need reload window to active the effect aft
 
 **Enjoy!**
 
+## build
+
+```bash
+./node_modules/.bin/vsce package
+```
+
+## install from commandline
+
+```bash
+code --install-extension copy-path-with-line-number-0.0.8.vsix
+```
+
 ## Release Notes
 
 ### 0.0.7
