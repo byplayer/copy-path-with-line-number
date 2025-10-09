@@ -78,7 +78,7 @@ class ConcreteCopyCommand implements Command {
             return res;
         }
 
-        return '@' + this.getPaths(uri);
+        return await this.getPaths(uri);
     }
 
     getPath(uri: Uri): string {
